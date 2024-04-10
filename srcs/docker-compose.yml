@@ -12,6 +12,7 @@ services:
       - wordpress
     networks:
       inception:
+    restart: on-failure
 
   wordpress:
     build: ./requirements/wordpress/.
@@ -22,7 +23,17 @@ services:
       - mariadb
     networks:
       inception:
- 
+    restart: on-failure
+    environment:
+      - WP_NAME=${WP_NAME}
+      - WP_USER=${WP_USER}
+      - WP_PASS=${WP_PASS}
+      - WP_HOST=${WP_HOST}
+      - WP_ADMIN_USER=${WP_ADMIN_USER}
+      - WP_ADMIN_PASS=${WP_ADMIN_PASS}
+      - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
+      - URL=${URL}
+      - TITLE=${TITLE}
   mariadb:
     build: ./requirements/mariadb/.
     container_name: mariadb
@@ -30,6 +41,7 @@ services:
       - ./database:/var/lib/mysql
     networks:
       inception:
+    restart: on-failure
 
 networks:
   inception:
