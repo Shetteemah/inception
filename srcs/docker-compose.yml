@@ -10,6 +10,8 @@ services:
       - ./web:/var/www/html
     depends_on:
       - wordpress
+    networks:
+      inception:
 
   wordpress:
     build: ./requirements/wordpress/.
@@ -18,9 +20,16 @@ services:
       - ./web:/var/www/html
     depends_on:
       - mariadb
+    networks:
+      inception:
  
   mariadb:
     build: ./requirements/mariadb/.
     container_name: mariadb
     volumes:
       - ./database:/var/lib/mysql
+    networks:
+      inception:
+
+networks:
+  inception:
