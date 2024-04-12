@@ -21,7 +21,6 @@ up:
 
 down:
 	@echo "\033[31m\033[31m\033[32mStopping ${NAME}..\033[31m\033[39m\n"
-	# @echo "Stopping ${NAME}..."
 	@docker compose -f $(COMPOSE_FILE) down
 	@echo "\033[31m\033[31m\033[32m${NAME} Stopped\033[31m\033[39m\n"
 
