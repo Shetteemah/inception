@@ -2,3 +2,4 @@
 web/
 database/
 .DS_Store
+.env

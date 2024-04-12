@@ -34,6 +34,7 @@ services:
       - WP_ADMIN_EMAIL=${WP_ADMIN_EMAIL}
       - URL=${URL}
       - TITLE=${TITLE}
+
   mariadb:
     build: ./requirements/mariadb/.
     container_name: mariadb
